@@ -29,8 +29,12 @@ function switchTurn() {
   playerTwo.turn = !playerTwo.turn;
   if (playerOne.turn) {
     $(".playerTurnName").text(playerOne.name);
+    $("#playerOnePic").css("border", "5px solid black");
+    $("#playerTwoPic").css("border", "");
   } else {
     $(".playerTurnName").text(playerTwo.name);
+    $("#playerTwoPic").css("border", "5px solid black");
+    $("#playerOnePic").css("border", "");
   }
 }
 
@@ -58,12 +62,12 @@ function winCondition1() {
 
 // sound effect functions
 function playSound() {
-  var sound = document.getElementById("audio");
+  var sound = document.getElementById("audio1");
   sound.play();
 }
 
 function playSound2() {
-  var sound2 = document.getElementById("audio1");
+  var sound2 = document.getElementById("audio");
   sound2.play(); 
 }
 
@@ -121,7 +125,8 @@ function winCondition2() {
   }
 
 $(document).ready(function() {
-  $(".playerTurnName").text(playerOne.name);   
+  $(".playerTurnName").text(playerOne.name); 
+  $("#playerOnePic").css("border", "5px solid black");  
   $(".game-square").click(function() {
     var squareId = parseInt($(this).attr('id'));
     if (gameBoard[squareId].owner === "") {

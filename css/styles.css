@@ -6,12 +6,54 @@
 
 .game-square {
   border: 2px solid white;
-  width:120px;
-  height: 120px; /* Fix height to equal width */
+  width: 120px;
+  height: 120px;
 }
 
+/* making the game-squares into tic tac toe board */ 
+
 .game-square:hover {
-  border: 3px solid black;
+  border: 5px solid white;
+}
+
+.game-square:active {
+  border: 5px solid gray;
+}
+
+.topLeft {
+  border-top: none;
+  border-left: none;
+}
+
+.topMiddle {
+ border-top: none;
+}
+
+.topRight {
+  border-right: none; 
+  border-top: none;
+}
+
+.leftMiddle {
+  border-left: none;
+}
+
+.rightMiddle {
+  border-right: none;
+}
+
+.bottomLeft {
+  border-bottom: none;
+  border-left: none;
+}
+
+.bottomMiddle {
+  border-bottom: none;
+}
+
+.bottomRight {
+  border-right: none;
+  border-bottom: none;
 }
 
 body {
@@ -35,6 +77,24 @@ h1 {
   text-align: center;
   font-weight: bold;
   font-family: "Courier New", Courier, monospace;
+}
+
+#playerTwoPic {
+  float: right; 
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 
