@@ -74,8 +74,9 @@ function playVictorySound() {
   victory.play(); 
 }
 
-function ticTacTroll() {
-  window.location = "https://www.youtube.com/watch?v=66tQR7koR_Q&t=10s"; 
+function playTieSound() {
+  var tie = document.getElementById("tie"); 
+  tie.play(); 
 }
 
 function tie() {
@@ -109,7 +110,7 @@ function winCondition2() {
     return false;
   }
 }
-
+// initialize
   var playerOne = new Player("Player One", "X");
   var playerTwo = new Player("Player Two", "O");
   playerOne.turn = true; 
@@ -134,8 +135,9 @@ $(document).ready(function() {
           setTimeout(function() {alert(playerOne.name + ' wins!'); }, 100); 
           setTimeout(function() {window.location = "https://www.youtube.com/watch?v=66tQR7koR_Q&t=10s";}, 100); 
         } else if (tie()){
-          alert("You tied!");
-          ticTacTroll();
+          playTieSound(); 
+          setTimeout(function() {alert('NOBODY wins!'); },  100)
+          setTimeout(function() {window.location = "https://www.quora.com/How-do-you-get-good-at-something";}, 100);  
           $(".game-square").css("background-image", "");
         } else {
           switchTurn();
@@ -152,6 +154,7 @@ $(document).ready(function() {
           $(".game-square").css("background-image", "");
           setTimeout(function() {window.location = "https://www.youtube.com/watch?v=66tQR7koR_Q&t=10s";}, 100);  
         } else if (tie()) {
+          playTieSound(); 
           setTimeout(function() {alert('NOBODY wins!'); },  100)
           setTimeout(function() {window.location = "https://www.quora.com/How-do-you-get-good-at-something";}, 100);  
           $(".game-square").css("background-image", "");
