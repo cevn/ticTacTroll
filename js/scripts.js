@@ -59,9 +59,14 @@ function winCondition1() {
   }
 }
 
+function playSound() {
+  var sound = document.getElementById("audio");
+  sound.play();
+}
+
 function ticTacTroll() {
   alert("Congrats! Click 'OK' for victory animation!"); 
-  window.location = "https://www.youtube.com/watch?v=66tQR7koR_Q&t=10s";
+  window.location = "https://www.youtube.com/watch?v=66tQR7koR_Q&t=10s"; 
 }
 
 function tie() {
@@ -113,6 +118,7 @@ $(document).ready(function() {
         gameBoard[squareId].owner = playerOne.symbol;
         $(this).css("background-size", "contain"); 
         $(this).css("background-image", "url('img/imageX.png')");
+        playSound(); 
       playerOne.owns.push(squareId);
         if (winCondition1()) {
           alert(playerOne.name + ' wins!'); 
@@ -129,6 +135,7 @@ $(document).ready(function() {
         $(this).css("background-size", "contain"); 
         $(this).css("background-image", "url('img/imageO.png')");
         playerTwo.owns.push(squareId);
+        playSound();
         if (winCondition2()) {
           alert(playerTwo.name + ' wins!');
           $(".game-square").css("background-image", "");
