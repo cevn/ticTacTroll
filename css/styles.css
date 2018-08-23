@@ -15,7 +15,7 @@
 }
 
 body {
-  background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); 
+  background-image: linear-gradient(to left, red,orange,yellow,green,blue,indigo,violet); 
 }
 
 .jumbotron {
@@ -27,11 +27,14 @@ h3 {
   color: white;
   font-size: 30px;
   font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
 
 h1 {
   color: white;
   text-align: center;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
 
 
