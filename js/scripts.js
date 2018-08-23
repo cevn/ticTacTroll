@@ -1,3 +1,4 @@
+// Player object and Square object constructors 
 function Player(name, symbol) {
   this.name = name;
   this.symbol = symbol;
@@ -11,6 +12,7 @@ function Square(position) {
 }
 
 
+
 function reInitialize() {
   $(".game-square").css("background-image", "");
   switchTurn();
@@ -22,7 +24,6 @@ function reInitialize() {
   }
 }
 
-//Function to switch turn
 function switchTurn() {
   playerOne.turn = !playerOne.turn;
   playerTwo.turn = !playerTwo.turn;
@@ -32,10 +33,6 @@ function switchTurn() {
     $(".playerTurnName").text(playerTwo.name);
   }
 }
-
-// function selectSquareClick(playerTurn) {
-//
-// }
 
 function winCondition1() {
   if (playerOne.owns.includes(0) && playerOne.owns.includes(1) && playerOne.owns.includes(2)) {
@@ -59,6 +56,7 @@ function winCondition1() {
   }
 }
 
+// sound effect functions
 function playSound() {
   var sound = document.getElementById("audio");
   sound.play();
@@ -79,6 +77,7 @@ function playTieSound() {
   tie.play(); 
 }
 
+// boolean to check for tie
 function tie() {
   var isTie = true; 
   for (var i = 0; i < gameBoard.length; i++) {
@@ -110,7 +109,9 @@ function winCondition2() {
     return false;
   }
 }
-// initialize
+
+
+// initialize game
   var playerOne = new Player("Player One", "X");
   var playerTwo = new Player("Player Two", "O");
   playerOne.turn = true; 
