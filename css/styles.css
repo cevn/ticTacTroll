@@ -80,7 +80,20 @@ h1 {
 }
 
 #playerTwoPic {
+  -webkit-transition: 2s; /* Safari */
+  transition: 0.5s;
   float: right; 
+}
+
+#playerOnePic {
+  -webkit-transition: 2s; /* Safari */
+  transition: 0.5s;
+}
+
+p {
+  text-align: center;
+  color: red;
+  font-size: 45px;
 }
 
 @keyframes shake {

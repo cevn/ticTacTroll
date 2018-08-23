@@ -12,6 +12,23 @@ function Square(position) {
 }
 
 
+// function countdown() {
+
+//   if (timeLeft === 0) {
+//     $("#time").text(timeLeft + ' seconds remaining in the turn');
+//     clearTimeout(timerId);
+//     setTimeout(function() {
+//       alert(playerTwo.name + "'s turn ran out!!!"); 
+//      },  100);
+//     playTimeSound();
+//     switchTurn();
+//       } else {
+//     $("#time").text(timeLeft + ' seconds remaining in the turn');
+//     timeLeft--;
+//   }
+// }
+
+
 
 function reInitialize() {
   $(".game-square").css("background-image", "");
@@ -25,6 +42,7 @@ function reInitialize() {
 }
 
 function switchTurn() {
+  // timeLeft = 5; 
   playerOne.turn = !playerOne.turn;
   playerTwo.turn = !playerTwo.turn;
   if (playerOne.turn) {
@@ -81,6 +99,11 @@ function playTieSound() {
   tie.play(); 
 }
 
+function playTimeSound () {
+  var timeSound = document.getElementById("timeSound");
+  timeSound.play();
+}
+
 // boolean to check for tie
 function tie() {
   var isTie = true; 
@@ -123,11 +146,14 @@ function winCondition2() {
   for (var i = 0; i < 9; i++) {
     gameBoard.push(new Square(i + 1));
   }
+  // var timeLeft = 5;    
+  // var elem = $("#time") 
+  // var timerId = setInterval(countdown, 1000);
 
 $(document).ready(function() {
   $(".playerTurnName").text(playerOne.name); 
   $("#playerOnePic").css("border", "5px solid black");  
-  $(".game-square").click(function() {
+  $(".game-square").click(function() { 
     var squareId = parseInt($(this).attr('id'));
     if (gameBoard[squareId].owner === "") {
       if (playerOne.turn === true) {
@@ -145,7 +171,7 @@ $(document).ready(function() {
         } else if (tie()){
           $(this).css("background-size", "contain"); 
           $(this).css("background-image", "url('img/bongo.png')");
-          playTieSound(); 
+          playTimeSound(); 
           setTimeout(function() {alert('NOBODY wins!'); },  100)
           setTimeout(function() {window.location = "https://www.quora.com/How-do-you-get-good-at-something";}, 100);  
         } else {
@@ -166,7 +192,7 @@ $(document).ready(function() {
         } else if (tie()) {
           $(this).css("background-size", "contain"); 
           $(this).css("background-image", "url('img/imageO.png')");
-          playTieSound(); 
+          playTimeSound(); 
           setTimeout(function() {alert('NOBODY wins!'); },  100)
           setTimeout(function() {window.location = "https://www.quora.com/How-do-you-get-good-at-something";}, 100);  
         } else {
