@@ -1,3 +1,5 @@
+
+
 .board-container {
   margin: 0 auto;
   text-align: center;
@@ -57,7 +59,7 @@
 }
 
 body {
-  background-image: linear-gradient(to left, red,orange,yellow,green,blue,indigo,violet); 
+  background-image: linear-gradient(orange, cyan); 
 }
 
 .jumbotron {

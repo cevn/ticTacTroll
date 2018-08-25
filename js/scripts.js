@@ -149,11 +149,30 @@ function winCondition2() {
   // var timeLeft = 5;    
   // var elem = $("#time") 
   // var timerId = setInterval(countdown, 1000);
+var hoverVar = 0; 
 
-$(document).ready(function() {
-  $(".playerTurnName").text(playerOne.name); 
-  $("#playerOnePic").css("border", "5px solid black");  
-  $(".game-square").click(function() { 
+var onGameSquareHover = function(event){
+  if (hoverVar === 0) {
+ //$("body").css("background-image", "linear-gradient(to right, red , yellow)");
+ hoverVar = 1; 
+  } else {
+    //$("body").css("background-image","linear-gradient(to left, red,orange,yellow,green,blue,indigo,violet)");
+  //hoverVar = 0; 
+  }
+}
+
+var timeHover = function(event) {
+  setTimeout(onGameSquareHover, 100);
+}
+
+var timeUnHover = function(event) {
+  setTimeout(onGameSquareUnHover, 100);
+}
+
+var onGameSquareUnHover = function(event){
+}
+
+var onGameSquareClick = function(event){ 
     var squareId = parseInt($(this).attr('id'));
     if (gameBoard[squareId].owner === "") {
       if (playerOne.turn === true) {
@@ -202,5 +221,31 @@ $(document).ready(function() {
     } else {
       alert("That square is already taken!"); 
     }
-  });
+  }
+
+
+var onMouseMoved = (event) => {
+  //console.log("pageX: " + event.pageX + ", pageY: " + event.pageY );
+
+  var xPercentage = event.pageX / window.innerWidth;
+  
+
+  xPercentage *=100;
+  xPercentage = xPercentage.toString().substring(0,2) + '%';
+var  gradientValue = `linear-gradient(to right, orange, orange ${xPercentage}, cyan)`;
+    console.log(gradientValue);
+
+  $('body').css('background-image', gradientValue); 
+
+}
+
+
+$(document).ready(function() {
+  $(".playerTurnName").text(playerOne.name); 
+  $("#playerOnePic").css("border", "5px solid black"); 
+
+  $(".game-square").hover(onGameSquareHover, onGameSquareUnHover); 
+  $(".game-square").click(onGameSquareClick);
+
+  $( document ).on( "mousemove", onMouseMoved);
 });
