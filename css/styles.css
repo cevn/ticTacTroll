@@ -59,7 +59,7 @@
 }
 
 body {
-  background-image: linear-gradient(orange, cyan); 
+  background-image: linear-gradient(to left, orange, cyan); 
 }
 
 .jumbotron {
